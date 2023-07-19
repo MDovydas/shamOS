@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './Taskbar.module.css'
 import Clock from './Clock'
 

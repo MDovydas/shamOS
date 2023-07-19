@@ -1,11 +1,8 @@
 import Desktop from './pages/Desktop'
 import './App.css'
 
-function App() {
-
-  return (
-      <Desktop />
-  )
+function App (): JSX.Element {
+  return <Desktop />
 }
 
 export default App
