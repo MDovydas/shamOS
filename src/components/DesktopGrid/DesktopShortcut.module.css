@@ -20,8 +20,7 @@
     width: 60%;
 }
 .clickedOnce {
-    background-color: rgba(91, 164, 245, 0.52);
-    outline: 1px black dashed;
+    outline: 2px dashed;
 }
 .shortcutLabel {
     -webkit-user-select: none;

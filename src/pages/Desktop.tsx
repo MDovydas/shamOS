@@ -8,6 +8,7 @@ export default function Desktop (): JSX.Element {
       <div className={styles.desktop}>
           <div className={styles.workspace}>
             <DesktopShortcutsGrid />
+            <div></div>
           </div>
           <Taskbar />
       </div>

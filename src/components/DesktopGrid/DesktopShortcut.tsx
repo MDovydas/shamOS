@@ -31,7 +31,7 @@ export default function DesktopShortcut ({
         onClick={handleClick}
       >
         <img
-          className={styles.shortcutIcon}
+          className={`${styles.shortcutIcon} desktop-shortcut`}
           src={image}
           alt='shortcut'
           draggable='false'
