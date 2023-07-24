@@ -28,7 +28,8 @@ body {
   overflow: hidden;
   width: 100vw;
 }
-.desktop-shortcut {
+.desktop-shortcut,
+.window-control {
   animation: fillPulse 5s infinite ease-in-out;
   box-sizing: border-box;
   overflow: hidden;
