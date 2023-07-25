@@ -7,5 +7,6 @@ import Desktop from './pages/Desktop.tsx'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Desktop />
+    <div className='desktop-shadow'></div>
   </React.StrictMode>
 )
