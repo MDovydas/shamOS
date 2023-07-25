@@ -28,8 +28,11 @@ body {
   overflow: hidden;
   width: 100vw;
 }
+#game-container {
+  animation:  5s infinite ease-in-out;
+}
 .desktop-shortcut,
-.window-control {
+.window-control{
   animation: fillPulse 5s infinite ease-in-out;
   box-sizing: border-box;
   overflow: hidden;
