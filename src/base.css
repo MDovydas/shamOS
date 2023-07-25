@@ -19,7 +19,7 @@ body {
 
 #root {
   animation: colorPulse 5s infinite ease-in-out;
-  background-image: radial-gradient(#444, #111);
+  /* background-image: radial-gradient(#444, #111); */
   box-shadow: 0 0 5vmin 1vmin #000 inset;
   box-sizing: border-box;
   font-family: 'Fixedsys', sans-serif;
@@ -28,7 +28,8 @@ body {
   overflow: hidden;
   width: 100vw;
 }
-.desktop-shortcut {
+.desktop-shortcut,
+.window-control {
   animation: fillPulse 5s infinite ease-in-out;
   box-sizing: border-box;
   overflow: hidden;
@@ -55,6 +56,21 @@ body {
   right: 0;
   top: 0;
   z-index: 2;
+}
+.desktop-shadow {
+  animation: colorPulse 5s infinite ease-in-out;
+  background-image: radial-gradient(#4444446c, #1111116c);
+  box-shadow: 0 0 5vmin 1vmin #000 inset;
+  box-sizing: border-box;
+  font-family: 'Fixedsys', sans-serif;
+  font-size: 20px;
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+  pointer-events: none;
+  top:0;
+  left:0;
+  position:absolute;
 }
 
 p:last-child:after {

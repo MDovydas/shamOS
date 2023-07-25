@@ -1,0 +1,23 @@
+.window {
+    height: 100%;
+    width: 100%;
+    border: 2px solid;
+    border-radius: 5px;
+    background-color: black;
+}
+.titleBar {
+    border-bottom: 2px solid;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.titleBar > span {
+    font-size: 28px;
+    flex-grow: 1;
+    cursor: move;
+}
+
+.controls {
+    cursor: pointer;
+}
