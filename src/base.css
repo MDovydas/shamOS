@@ -34,7 +34,8 @@ body {
   animation:  5s infinite ease-in-out;
 }
 .desktop-shortcut,
-.window-control{
+.window-control,
+.taskbar-icon{
   animation: fillPulse 5s infinite ease-in-out;
   box-sizing: border-box;
   overflow: hidden;

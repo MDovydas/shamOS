@@ -1,0 +1,17 @@
+.app {
+    height: 1.6rem;
+    width: 15rem;
+    overflow: hidden;
+    border: 2px solid;
+    display: flex;
+    gap: 1rem;
+    align-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}

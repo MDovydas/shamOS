@@ -13,6 +13,7 @@ class App {
   title!: string
   content!: JSX.Element
   minimized!: boolean
+  icon!: string
 }
 
 export default function DesktopShortcut ({
@@ -25,6 +26,7 @@ export default function DesktopShortcut ({
   app.title = title
   app.content = content
   app.minimized = false
+  app.icon = image
   const [clickCount, setClickCount] = useState(0)
   const addActiveApp = useAppState(state => state.addActiveApp)
   const handleClick = (): void => {
