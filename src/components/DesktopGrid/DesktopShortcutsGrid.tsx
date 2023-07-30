@@ -4,26 +4,30 @@ import blank from '../../assets/blank.svg'
 
 class App {
   image!: string
-  shortcutText!: string
+  title!: string
+  content!: JSX.Element
 }
 const someApp = new App()
 someApp.image = blank
-someApp.shortcutText = 'Shortcut to Some App'
+someApp.title = 'Shortcut to Some App'
+someApp.content = <><div>Some APP</div></>
 
 const connectApp = new App()
 connectApp.image = blank
-connectApp.shortcutText = 'shortcut to Connect'
+connectApp.title = 'shortcut to Connect'
+connectApp.content = <><div>CONNECT APP</div></>
 
 const socialsApp = new App()
 socialsApp.image = blank
-socialsApp.shortcutText = 'shortcut to Socials'
+socialsApp.title = 'shortcut to Socials'
+socialsApp.content = <><div>SOCIALS APP</div></>
 
 const desktopShortcuts = [someApp, connectApp, socialsApp]
 
 export default function DesktopShortcutsGrid (): JSX.Element {
   const grid = desktopShortcuts.map((item, index): JSX.Element => {
-    return <DesktopShortcut image={item.image} shortcutText={item.shortcutText}
-    key={index} id={index} />
+    return <DesktopShortcut image={item.image} title={item.title}
+    key={index} id={index} content={item.content} />
   })
 
   return (
