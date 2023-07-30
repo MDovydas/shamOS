@@ -3,6 +3,7 @@ import styles from './AppWindow.module.css'
 import minimize from '../../assets/minimize.svg'
 import maximize from '../../assets/maximize.svg'
 import close from '../../assets/close.svg'
+import LeDodge from '../LeDodge/LeDodge'
 export default function AppWindow (): JSX.Element {
   return (
     <Rnd
@@ -23,6 +24,7 @@ export default function AppWindow (): JSX.Element {
                 <img className='window-control' src={close}></img>
             </div>
         </div>
+        <LeDodge />
       </div>
     </Rnd>
   )
