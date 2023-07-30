@@ -1,24 +1,38 @@
 import { useState } from 'react'
 import styles from './DesktopShortcut.module.css'
+import { useAppState } from '../../store'
 
 interface DesktopShortcutProps {
   image: string
-  shortcutText: string
+  title: string
   id: number
+  content: JSX.Element
+}
+class App {
+  id!: number
+  title!: string
+  content!: JSX.Element
+  minimized!: boolean
 }
 
 export default function DesktopShortcut ({
   image,
-  shortcutText,
-  id
+  title,
+  id,
+  content
 }: DesktopShortcutProps): JSX.Element {
+  const app = new App()
+  app.title = title
+  app.content = content
+  app.minimized = false
   const [clickCount, setClickCount] = useState(0)
-
+  const addActiveApp = useAppState(state => state.addActiveApp)
   const handleClick = (): void => {
     if (clickCount === 0) {
       setClickCount(1)
     } else {
       setClickCount(0)
+      addActiveApp(app)
     }
   }
 
@@ -36,7 +50,7 @@ export default function DesktopShortcut ({
           alt='shortcut'
           draggable='false'
         ></img>
-        <span className={styles.shortcutLabel}>{shortcutText}</span>
+        <span className={styles.shortcutLabel}>{title}</span>
       </div>
     </>
   )

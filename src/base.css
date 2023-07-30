@@ -10,6 +10,7 @@ body {
   margin: 0;
   overflow: hidden;
   padding: 0;
+  z-index: 2147483644;
 }
 
 #root {
@@ -27,6 +28,7 @@ body {
   height: 100vh;
   overflow: hidden;
   width: 100vw;
+  z-index: 2147483645;
 }
 #game-container {
   animation:  5s infinite ease-in-out;
@@ -45,7 +47,7 @@ body {
   opacity: 0.5;
   position: absolute;
   right: 0;
-  z-index: 1;
+  z-index: 2147483646;
 }
 
 #root:after {
@@ -58,7 +60,7 @@ body {
   position: absolute;
   right: 0;
   top: 0;
-  z-index: 2;
+  z-index: 2147483647;
 }
 .desktop-shadow {
   animation: colorPulse 5s infinite ease-in-out;
@@ -74,6 +76,7 @@ body {
   top:0;
   left:0;
   position:absolute;
+  z-index: 2147483644;
 }
 
 p:last-child:after {
