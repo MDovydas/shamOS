@@ -5,26 +5,17 @@ const ScoreDisplay: React.FC<{ score: number }> = ({ score }) => {
   return <div id="score-display">Score: {score}</div>
 }
 
-const RestartText: React.FC<{ onClick: () => void }> = ({ onClick }) => {
-  return (
-    <div id="restart-text" onClick={onClick}>
-      Restart
-    </div>
-  )
-}
-
 const LeDodge: React.FC = () => {
   const [score, setScore] = useState<number>(0)
   const gameContainerRef = useRef<HTMLDivElement>(null)
   let obstacleInterval: number
   let character: HTMLDivElement | null = null
   let dot: HTMLDivElement | null = null
-  const [initialRender, setInitialRender] = useState<boolean>(true)
 
   useEffect(() => {
     const gameContainer = gameContainerRef.current
 
-    function handleMouseMove (event: MouseEvent) {
+    function handleMouseMove (event: MouseEvent): void {
       if ((character != null) && (gameContainer != null)) {
         const containerRect = gameContainer.getBoundingClientRect()
         const mouseX = event.clientX - containerRect.left
@@ -38,7 +29,7 @@ const LeDodge: React.FC = () => {
 
     document.addEventListener('mousemove', handleMouseMove)
 
-    function checkCollision () {
+    function checkCollision (): void {
       const characterRect = character.getBoundingClientRect()
       const characterLeft = characterRect.left
       const characterRight = characterRect.right
@@ -89,7 +80,7 @@ const LeDodge: React.FC = () => {
       }
     }
 
-    function createObstacle () {
+    function createObstacle (): void {
       const obstacle = document.createElement('div')
       obstacle.className = 'obstacle'
       const obstacleTop = Math.random() * (gameContainer.clientHeight - 100)
@@ -99,7 +90,7 @@ const LeDodge: React.FC = () => {
       gameContainer.appendChild(obstacle)
     }
 
-    function createDot () {
+    function createDot (): void {
       if (gameContainer != null) {
         const existingDot = gameContainer.querySelector('.dot')
         if (existingDot != null) {
@@ -116,11 +107,11 @@ const LeDodge: React.FC = () => {
       }
     }
 
-    function incrementScore () {
+    function incrementScore (): void {
       setScore((prevScore) => prevScore + 1)
     }
 
-    function restartGame () {
+    function restartGame (): void {
       if ((gameContainer != null) && (character != null)) {
         const obstacles = gameContainer.getElementsByClassName('obstacle')
         while (obstacles.length > 0) {
@@ -140,7 +131,7 @@ const LeDodge: React.FC = () => {
       }
     }
 
-    function startGame () {
+    function startGame (): void {
       createDot()
 
       character = document.getElementById('character')
