@@ -19,7 +19,6 @@ class App {
 export default function DesktopShortcut ({
   image,
   title,
-  id,
   content
 }: DesktopShortcutProps): JSX.Element {
   const app = new App()

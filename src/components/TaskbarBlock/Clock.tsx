@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import styles from './Clock.module.css'
 
 export default function Clock (): JSX.Element {

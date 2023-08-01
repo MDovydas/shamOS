@@ -1,22 +1,22 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.css'
 
 const ScoreDisplay: React.FC<{ score: number }> = ({ score }) => {
-  return <div id="score-display">Score: {score}</div>
+  return <div id='score-display'>Score: {score}</div>
 }
 
 const LeDodge: React.FC = () => {
   const [score, setScore] = useState<number>(0)
-  const gameContainerRef = useRef<HTMLDivElement>(null)
+  const gameContainerRef = React.createRef<HTMLDivElement>()
   let obstacleInterval: number
-  let character: HTMLDivElement | null = null
-  let dot: HTMLDivElement | null = null
+  let character: HTMLDivElement
+  let dot: HTMLDivElement
 
   useEffect(() => {
     const gameContainer = gameContainerRef.current
 
     function handleMouseMove (event: MouseEvent): void {
-      if ((character != null) && (gameContainer != null)) {
+      if (character != null && gameContainer != null) {
         const containerRect = gameContainer.getBoundingClientRect()
         const mouseX = event.clientX - containerRect.left
         const mouseY = event.clientY - containerRect.top
@@ -38,56 +38,59 @@ const LeDodge: React.FC = () => {
 
       let obstacleLeft, obstacleRight, obstacleTop, obstacleBottom
       let dotLeft, dotRight, dotTop, dotBottom
+      if (gameContainer != null) {
+        for (const child of gameContainer.children) {
+          const childElement = child as HTMLElement
 
-      for (const child of gameContainer.children) {
-        const childElement = child as HTMLElement
+          if (childElement.classList.contains('obstacle')) {
+            const obstacleRect = childElement.getBoundingClientRect()
+            obstacleLeft = obstacleRect.left
+            obstacleRight = obstacleRect.right
+            obstacleTop = obstacleRect.top
+            obstacleBottom = obstacleRect.bottom
 
-        if (childElement.classList.contains('obstacle')) {
-          const obstacleRect = childElement.getBoundingClientRect()
-          obstacleLeft = obstacleRect.left
-          obstacleRight = obstacleRect.right
-          obstacleTop = obstacleRect.top
-          obstacleBottom = obstacleRect.bottom
+            if (
+              characterBottom >= obstacleTop &&
+              characterTop <= obstacleBottom &&
+              characterRight >= obstacleLeft &&
+              characterLeft <= obstacleRight
+            ) {
+              restartGame()
+              // break
+            }
+          } else if (childElement.classList.contains('dot')) {
+            const dotRect = childElement.getBoundingClientRect()
+            dotLeft = dotRect.left
+            dotRight = dotRect.right
+            dotTop = dotRect.top
+            dotBottom = dotRect.bottom
 
-          if (
-            characterBottom >= obstacleTop &&
-            characterTop <= obstacleBottom &&
-            characterRight >= obstacleLeft &&
-            characterLeft <= obstacleRight
-          ) {
-            restartGame()
-            // break
-          }
-        } else if (childElement.classList.contains('dot')) {
-          const dotRect = childElement.getBoundingClientRect()
-          dotLeft = dotRect.left
-          dotRight = dotRect.right
-          dotTop = dotRect.top
-          dotBottom = dotRect.bottom
-
-          if (
-            characterBottom >= dotTop &&
-            characterTop <= dotBottom &&
-            characterRight >= dotLeft &&
-            characterLeft <= dotRight
-          ) {
-            childElement.remove()
-            incrementScore()
-            createDot()
-            break
+            if (
+              characterBottom >= dotTop &&
+              characterTop <= dotBottom &&
+              characterRight >= dotLeft &&
+              characterLeft <= dotRight
+            ) {
+              childElement.remove()
+              incrementScore()
+              createDot()
+              break
+            }
           }
         }
       }
     }
 
     function createObstacle (): void {
-      const obstacle = document.createElement('div')
-      obstacle.className = 'obstacle'
-      const obstacleTop = Math.random() * (gameContainer.clientHeight - 100)
-      const speed = Math.random() * 8 + 4
-      obstacle.style.top = `${obstacleTop}px`
-      obstacle.style.animationDuration = `${speed}s`
-      gameContainer.appendChild(obstacle)
+      if (gameContainer != null) {
+        const obstacle = document.createElement('div')
+        obstacle.className = 'obstacle'
+        const obstacleTop = Math.random() * (gameContainer.clientHeight - 100)
+        const speed = Math.random() * 8 + 4
+        obstacle.style.top = `${obstacleTop}px`
+        obstacle.style.animationDuration = `${speed}s`
+        gameContainer.appendChild(obstacle)
+      }
     }
 
     function createDot (): void {
@@ -108,11 +111,11 @@ const LeDodge: React.FC = () => {
     }
 
     function incrementScore (): void {
-      setScore((prevScore) => prevScore + 1)
+      setScore(prevScore => prevScore + 1)
     }
 
     function restartGame (): void {
-      if ((gameContainer != null) && (character != null)) {
+      if (gameContainer != null && character != null) {
         const obstacles = gameContainer.getElementsByClassName('obstacle')
         while (obstacles.length > 0) {
           obstacles[0].remove()
@@ -134,7 +137,7 @@ const LeDodge: React.FC = () => {
     function startGame (): void {
       createDot()
 
-      character = document.getElementById('character')
+      character = document.getElementById('character') as HTMLDivElement
 
       // character.id = 'character'
       // gameContainer.appendChild(character)
@@ -152,7 +155,7 @@ const LeDodge: React.FC = () => {
   }, [])
 
   return (
-    <div ref={gameContainerRef} id="game-container">
+    <div ref={gameContainerRef} id='game-container'>
       <ScoreDisplay score={score} />
       <div id='character'></div>
     </div>
