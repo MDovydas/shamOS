@@ -35,7 +35,8 @@ body {
 }
 .desktop-shortcut,
 .window-control,
-.taskbar-icon{
+.taskbar-icon,
+.calendarArrow{
   animation: fillPulse 5s infinite ease-in-out;
   box-sizing: border-box;
   overflow: hidden;
@@ -142,3 +143,4 @@ p:last-child:after {
     opacity: 0;
   }
 }
+

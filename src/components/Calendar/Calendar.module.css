@@ -15,27 +15,32 @@
 }
 
 .fakeBorder {
-    height: 100%;
+    flex-grow: 1;
 }
 
 .calendarGrid {
     display: grid;
-    padding: 2px;
     grid-template-columns: repeat(7, 1fr);
     grid-auto-rows: 1fr;
     height: 100%;
     border-radius: 5px;
     outline: 1px solid;
+    overflow: scroll;
 }
 
 .mainContainer {
     height: 100%;
     width: 100%;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
 .calendarContainer {
-    height: calc(100% - 1.7rem - 3.6rem);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .calendarHeader {
@@ -44,7 +49,10 @@
     display: flex;
     flex-direction: row;
     gap: 5px;
-    margin-bottom: 0.8rem;
+    /* margin-bottom: 0.8rem; */
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 5rem;
 }
 
 .month {
@@ -66,21 +74,13 @@
     font-size: 80%;
 }
 
-.dayData {
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    flex-grow: 1;
-    flex-shrink: 1;
-
-
-}
 
 .weekday {
     display: grid;
     grid-template-columns: repeat(3, 33.3%);
+}
+.weekday > div {
+    text-align: center;
 }
 
 
@@ -101,6 +101,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .previousDay .workingInfo {
@@ -149,4 +150,53 @@
 
 .branchSelector > .activeBranch{
     font-weight: 700;
+}
+
+.inputRow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    position: block;
+    bottom:0;
+    right: 2rem;
+    flex-wrap: wrap;
+
+}
+.inputRow >label {
+    height: 1.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.inputRow > input {
+    all:unset;
+    border: solid 2px;
+    height: 1.5rem;
+    flex-shrink: 1;
+}
+.inputRow > button{
+    all: unset;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .calendarGrid{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .calendarContainer{
+        overflow: scroll;
+        max-height: calc( 100% - 4.5rem)
+    }
+    .calendarHeader{
+        position: fixed;
+        background-color: black;
+        width: calc( 100% - 10rem );
+        border-bottom: 1px dashed;
+    }
+    .inputRow{
+        padding-top: 0.15rem;
+        border-top: 1px dashed;
+    }
 }

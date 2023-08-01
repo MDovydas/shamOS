@@ -48,7 +48,7 @@ export default function AppWindow ({
         width: windowElement.style.width,
         transform: windowElement.style.transform
       })
-      windowElement.style.height = '100%'
+      windowElement.style.height = 'calc( 100% - 2.3rem )'
       windowElement.style.width = '100%'
       windowElement.style.transform = 'none'
       setIsMaximized(true)
@@ -61,6 +61,13 @@ export default function AppWindow ({
       setIsMaximized(false)
     }
   }
+
+  if (window.innerWidth < 768) {
+    setTimeout(() => {
+      maximizeWindow(id)
+    }, 50)
+  }
+
   return (
     <Rnd
       default={{
@@ -91,14 +98,20 @@ export default function AppWindow ({
                 minimizeApp(id)
               }}
             ></img>
-            <img
-              className='window-control'
-              src={maximize}
-              alt='Maximize'
-              onClick={() => {
-                maximizeWindow(id)
-              }}
-            ></img>
+            {window.innerWidth >= 768
+              ? (
+              <img
+                className='window-control'
+                src={maximize}
+                alt='Maximize'
+                onClick={() => {
+                  maximizeWindow(id)
+                }}
+              ></img>
+                )
+              : (
+                  ''
+                )}
             <img
               className='window-control'
               src={close}
