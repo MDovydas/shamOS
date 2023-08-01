@@ -5,6 +5,7 @@ interface App {
   title: string
   content: JSX.Element
   minimized: boolean
+  icon: string
 }
 
 interface AppState {
@@ -12,6 +13,7 @@ interface AppState {
   addActiveApp: (app: App) => void
   closeApp: (id: number) => void
   minimizeApp: (id: number) => void
+  toggleMinimize: (id: number) => void
 }
 
 interface ZIndexState {
@@ -38,6 +40,13 @@ export const useAppState = create<AppState>()(set => ({
     set((state) => ({
       activeApps: state.activeApps.map((app) =>
         app.id === id ? { ...app, minimized: true } : app
+      )
+    }))
+  },
+  toggleMinimize: (id) => {
+    set((state) => ({
+      activeApps: state.activeApps.map((app) =>
+        app.id === id ? { ...app, minimized: !app.minimized } : app
       )
     }))
   }

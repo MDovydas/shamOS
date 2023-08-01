@@ -11,3 +11,8 @@
     background-color: black;
     z-index: 2147483640;
 }
+.left{
+    position:relative;
+    display: flex;
+    gap: 0.2rem;
+}
