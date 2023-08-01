@@ -38,3 +38,6 @@ shamOS is an interactive web-based project that recreates the nostalgic retro de
 
 2. **Animations and Visual Effects**: Implement sci-fi-themed animations and visual effects to enhance the retro desktop experience.
 
+## Live Preview
+
+https://sham-os-i6ow.vercel.app/
