@@ -5,6 +5,7 @@ import gameIcon from '../../assets/game.svg'
 import calendarIcon from '../../assets/calendar.svg'
 import LeDodge from '../LeDodge/LeDodge'
 import Calendar from '../Calendar/Calendar'
+import About from '../AboutApp/About'
 
 class App {
   image!: string
@@ -24,7 +25,7 @@ connectApp.content = <Calendar/>
 const aboutApp = new App()
 aboutApp.image = blankIcon
 aboutApp.title = 'About'
-aboutApp.content = <><div></div></>
+aboutApp.content = <About/>
 
 const desktopShortcuts = [game, connectApp, aboutApp]
 
