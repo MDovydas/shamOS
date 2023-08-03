@@ -1,9 +1,7 @@
-@font-face {
-  font-family: 'Fixedsys';
-  src: url('../src/assets/FixedsysRegular.ttf') format('truetype');
-}
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 body {
-  height: 100vh;
+  height: 100dvh;
+  height: -webkit-fill-available;
   width: 100vw;
   margin: 0;
   background-color: #000;
@@ -14,7 +12,8 @@ body {
 }
 
 #root {
-  height: 100vh;
+  height: 100dvh;
+  height: -webkit-fill-available;
   width: 100vw;
 }
 
@@ -23,20 +22,21 @@ body {
   /* background-image: radial-gradient(#444, #111); */
   box-shadow: 0 0 5vmin 1vmin #000 inset;
   box-sizing: border-box;
-  font-family: 'Fixedsys', sans-serif;
+  font-family: 'Press Start 2P', cursive;
   font-size: 20px;
-  height: 100vh;
+  height: 100dvh;
+  height: -webkit-fill-available;
   overflow: hidden;
   width: 100vw;
   z-index: 2147483645;
 }
 #game-container {
-  animation:  5s infinite ease-in-out;
+  animation: 5s infinite ease-in-out;
 }
 .desktop-shortcut,
 .window-control,
 .taskbar-icon,
-.calendarArrow{
+.calendarArrow {
   animation: fillPulse 5s infinite ease-in-out;
   box-sizing: border-box;
   overflow: hidden;
@@ -69,15 +69,16 @@ body {
   background-image: radial-gradient(#4444446c, #1111116c);
   box-shadow: 0 0 5vmin 1vmin #000 inset;
   box-sizing: border-box;
-  font-family: 'Fixedsys', sans-serif;
+  font-family: 'Press Start 2P', cursive;
   font-size: 20px;
-  height: 100vh;
+  height: 100dvh;
+  height: -webkit-fill-available;
   overflow: hidden;
   width: 100vw;
   pointer-events: none;
-  top:0;
-  left:0;
-  position:absolute;
+  top: 0;
+  left: 0;
+  position: absolute;
   z-index: 2147483644;
 }
 
@@ -143,4 +144,3 @@ p:last-child:after {
     opacity: 0;
   }
 }
-
