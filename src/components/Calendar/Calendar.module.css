@@ -1,202 +1,210 @@
 .calendarDay,
 .emptyDay {
 }
-.calendarGrid> :nth-child(7n+1),
-.calendarGrid> :nth-child(7n+2),
-.calendarGrid> :nth-child(7n+3),
-.calendarGrid> :nth-child(7n+4),
-.calendarGrid> :nth-child(7n+5),
-.calendarGrid> :nth-child(7n+6)
-{
-    border-right: 1px dashed;
+.calendarGrid > :nth-child(7n + 1),
+.calendarGrid > :nth-child(7n + 2),
+.calendarGrid > :nth-child(7n + 3),
+.calendarGrid > :nth-child(7n + 4),
+.calendarGrid > :nth-child(7n + 5),
+.calendarGrid > :nth-child(7n + 6) {
+  border-right: 1px dashed;
 }
-.calendarGrid> :not(:last-child):not(:nth-last-child(-n+7)){
-    border-bottom: 1px dashed;
+.calendarGrid > :not(:last-child):not(:nth-last-child(-n + 7)) {
+  border-bottom: 1px dashed;
+}
+.calendarGrid::-webkit-scrollbar {
+  display: none;
+}
+
+.calendarContainer::-webkit-scrollbar {
+  display: none;
 }
 
 .fakeBorder {
-    flex-grow: 1;
+  flex-grow: 1;
+  overflow: scroll;
+  position: relative;
 }
 
 .calendarGrid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-auto-rows: 1fr;
-    height: 100%;
-    border-radius: 5px;
-    outline: 1px solid;
-    overflow: scroll;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 1fr;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  outline: 1px solid;
+  overflow: scroll;
+  position: absolute;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .mainContainer {
-    height: 100%;
-    width: 100%;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .calendarContainer {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .calendarHeader {
-    font-weight: 500;
-    font-size: 100%;
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    /* margin-bottom: 0.8rem; */
-    align-items: center;
-    justify-content: space-between;
-    padding-inline: 5rem;
+  font-weight: 500;
+  font-size: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  /* margin-bottom: 0.8rem; */
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 5rem;
 }
 
 .month {
-    width: 4.2rem;
+  width: 4.2rem;
 }
 
 .arrow {
-    padding: 7px;
-    cursor: pointer;
+  padding: 7px;
+  cursor: pointer;
 }
 
 .weekday {
-    font-size: 75%;
-    padding-bottom: 4px;
+  font-size: 75%;
+  padding-bottom: 4px;
 }
 
 .dayNumber {
-    font-weight: bold;
-    font-size: 80%;
+  font-weight: bold;
+  font-size: 80%;
 }
-
 
 .weekday {
-    display: grid;
-    grid-template-columns: repeat(3, 33.3%);
+  display: grid;
+  grid-template-columns: repeat(3, 33.3%);
 }
 .weekday > div {
-    text-align: center;
+  text-align: center;
 }
 
-
 .workingInfo {
-    display: flex;
-    justify-content: space-between;
-    font-size: 75%;
-    align-items: center;
-    border-radius: 5px;
-    padding: 0px 5px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 75%;
+  align-items: center;
+  border-radius: 5px;
+  padding: 0px 5px;
 
-
-
-    height: calc(33.33% - 3.33px);
+  height: calc(33.33% - 3.33px);
 }
 
 .calendarDay {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
 }
 
 .previousDay .workingInfo {
-    border: 1px solid;
-
+  border: 1px solid;
 }
-
 
 .name {
-    font-weight: 500;
+  font-weight: 500;
 }
 
-.totalHours{
-    grid-area: 1 / 3 / 2 / 4; 
-    text-align: right;
+.totalHours {
+  grid-area: 1 / 3 / 2 / 4;
+  text-align: right;
 }
 
-.dayNumber{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.dayNumber {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.editIcon{
-    height: 10px;
-    width: 10px;
-    cursor: pointer;
+.editIcon {
+  height: 10px;
+  width: 10px;
+  cursor: pointer;
 }
 
-.branchSelector{
-    flex-grow: 1;
-    text-align: right;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 5px;
+.branchSelector {
+  flex-grow: 1;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
 }
 
 .branchSelector > div {
-    border-radius: 5px;
-    padding: 5px;
-    font-size: 70%;
-    cursor: pointer;
-    font-weight: 400;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 70%;
+  cursor: pointer;
+  font-weight: 400;
 }
 
-.branchSelector > .activeBranch{
-    font-weight: 700;
+.branchSelector > .activeBranch {
+  font-weight: 700;
 }
 
-.inputRow{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    position: block;
-    bottom:0;
-    right: 2rem;
-    flex-wrap: wrap;
-
+.inputRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: block;
+  bottom: 0;
+  right: 2rem;
+  flex-wrap: wrap;
 }
-.inputRow >label {
-    height: 1.5rem;
-    white-space: nowrap;
-    overflow: hidden;
-    flex-shrink: 0;
+.inputRow > label {
+  height: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 .inputRow > input {
-    all:unset;
-    border: solid 2px;
-    height: 1.5rem;
-    flex-shrink: 1;
+  all: unset;
+  border: solid 2px;
+  height: 1.5rem;
+  flex-shrink: 1;
 }
-.inputRow > button{
-    all: unset;
-    text-transform: uppercase;
-    cursor: pointer;
+.inputRow > button {
+  all: unset;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 768px) {
-    .calendarGrid{
-        grid-template-columns: repeat(1, 1fr);
-    }
-    .calendarContainer{
-        overflow: scroll;
-        max-height: calc( 100% - 4.5rem)
-    }
-    .calendarHeader{
-        position: fixed;
-        background-color: black;
-        width: calc( 100% - 10rem );
-        border-bottom: 1px dashed;
-    }
-    .inputRow{
-        padding-top: 0.15rem;
-        border-top: 1px dashed;
-    }
+  .calendarGrid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .calendarContainer {
+    overflow: scroll;
+    max-height: calc(100% - 4.5rem);
+  }
+  .calendarHeader {
+    position: fixed;
+    background-color: black;
+    width: calc(100% - 10rem);
+    border-bottom: 1px dashed;
+  }
+  .inputRow {
+    padding-top: 0.15rem;
+    border-top: 1px dashed;
+  }
 }

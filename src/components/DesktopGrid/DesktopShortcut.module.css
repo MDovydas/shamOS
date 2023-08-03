@@ -10,6 +10,7 @@
     flex-direction: column;
     align-items: center;
     cursor: pointer;
+    font-size: 60%;
 
     -webkit-user-select: none;
     -khtml-user-select: none;
