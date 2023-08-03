@@ -24,6 +24,27 @@ export default function AppWindow ({
   const minimizeApp = useAppState(state => state.minimizeApp)
   const closeApp = useAppState(state => state.closeApp)
   const [topIndex, setTopIndex] = useState(zIndex - 1)
+  const getDefaultWindowSize = (): any => {
+    if (window.innerWidth < 768) {
+      return {
+        x: 0,
+        y: 0,
+        width: window.innerWidth,
+        height: window.innerHeight - 36
+      }
+    } else {
+      return {
+        x: 200 + id * 25,
+        y: 200 + id * 25,
+        width: 1000,
+        height: 500
+      }
+    }
+  }
+
+  const [defaultWindowSize] = useState(
+    getDefaultWindowSize()
+  )
   const moveToTop = (): void => {
     setTopIndex(zIndex)
     increaseZIndex()
@@ -62,20 +83,9 @@ export default function AppWindow ({
     }
   }
 
-  if (window.innerWidth < 768) {
-    setTimeout(() => {
-      maximizeWindow(id)
-    }, 50)
-  }
-
   return (
     <Rnd
-      default={{
-        x: 200 + id * 25,
-        y: 200 + id * 25,
-        width: 1000,
-        height: 500
-      }}
+      default={defaultWindowSize}
       dragHandleClassName='title'
       id={id}
       onClick={() => {
