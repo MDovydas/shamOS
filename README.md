@@ -40,4 +40,4 @@ shamOS is an interactive web-based project that recreates the nostalgic retro de
 
 ## Live Preview
 
-https://sham-os-i6ow.vercel.app/
+https://sham-os.vercel.app/
